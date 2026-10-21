@@ -1,13 +1,19 @@
-# ChargeHub Stations
+# ChargeHub.Stations
 
-A small console app that demonstrates a charging station's availability state. A station starts available, becomes unavailable when charging starts, and throws an `InvalidOperationException` if charging is started while it is already in use. `StopCharging()` makes it available again.
+A C# console application that models an electric vehicle charging station.
 
-## Run
+## Features
+- Each station has an ID and maximum charging power.
+- A station starts as available.
+- Starting a charge makes the station unavailable.
+- Starting a second charge while occupied throws an InvalidOperationException.
+- Stopping a charge makes the station available again.
+- Maximum charging power must be greater than zero.
 
-From the project directory, run:
+## How to run
+
+Run the application from the project directory:
 
 ```bash
 dotnet run
 ```
-
-The program creates station AC-01 with a maximum power of 11 kW and demonstrates starting and stopping a charging session.
