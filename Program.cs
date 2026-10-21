@@ -1,16 +1,17 @@
-﻿using System;
-using ChargeHub.Stations;
+﻿using ChargeHub.Stations;
 
-internal class Program
+class Program
 {
-    private static void Main()
+    static void Main()
     {
         var station = new ChargingStation("AC-01", 11);
 
-        Console.WriteLine($"Station {station.Id} is available: {station.IsAvailable}");
+        Console.WriteLine($"Station: {station.Id}");
+        Console.WriteLine($"Max power: {station.MaxKw} kW");
+        Console.WriteLine($"Available: {station.IsAvailable}");
 
         station.StartCharging();
-        Console.WriteLine($"After start: available = {station.IsAvailable}");
+        Console.WriteLine($"After starting: {station.IsAvailable}");
 
         try
         {
@@ -18,10 +19,10 @@ internal class Program
         }
         catch (InvalidOperationException ex)
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
 
         station.StopCharging();
-        Console.WriteLine($"After stop: available = {station.IsAvailable}");
+        Console.WriteLine($"After stopping: {station.IsAvailable}");
     }
 }
